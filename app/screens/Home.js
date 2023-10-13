@@ -1,5 +1,5 @@
 import { View, Text, StatusBar, StyleSheet, Button } from 'react-native'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 const Home = ({navigation}) => {
   return (
