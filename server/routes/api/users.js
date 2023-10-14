@@ -25,6 +25,7 @@ router.post("/", (req, res) => {
         friends: []
     };
 
+    console.log(req.body);
     console.log(newUser.username);
 
     if (newUser.username === undefined) {

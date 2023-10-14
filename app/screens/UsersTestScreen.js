@@ -48,7 +48,11 @@ async function postData(url = '', data = {}) {
     try { 
         const response = await fetch('http://128.61.63.216:8080/api/users', {
             method: "POST",
-            body: JSON.stringify({username: "jojojo"})
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({username: "jojojo"}),
         });
     } catch (error) {
         console.error(error);
