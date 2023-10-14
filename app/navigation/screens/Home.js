@@ -18,8 +18,8 @@ const Home = ({navigation}) => {
       <Text>Home</Text>
       <Text>{message}</Text>
       <Button
-        title="Go to Details"
-        onPress={() => navigation.navigate('Details')}
+        title="Go to Profile"
+        onPress={() => navigation.navigate('Profile')}
       />
     </View>
   )
