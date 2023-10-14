@@ -5,4 +5,9 @@ const db = new firestore.Firestore({
   keyFilename: "service-key.json",
 });
 
-module.exports = db;
+const goalRef = db.collection("goals")
+
+module.exports = {
+  goalRef,
+  db
+}
