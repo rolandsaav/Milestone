@@ -8,7 +8,6 @@ const AuthContext = React.createContext();
 
 export default function App() {
   const [user, setUser] = useState(null);
-
   return (
     <AuthContext.Provider value={[user, setUser]}>
     <NavigationContainer>
