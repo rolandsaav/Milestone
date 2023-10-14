@@ -1,25 +1,17 @@
 import { View, Text, StatusBar, StyleSheet, Button } from 'react-native'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useReducer } from 'react'
 
 const Home = ({navigation}) => {
-  const [message, setMessage] = useState("");
-
-  useEffect(() => {
-    fetch("https://milestone-api-b3wiqyztra-ue.a.run.app/message")
-      .then((res) => res.json())
-      .then((data) => setMessage(data.message))
-      .catch((error) => {
-        console.error(error);
-      })
-  }, []);
-  
   return (
     <View style={styles.container}>
       <Text>Home</Text>
-      <Text>{message}</Text>
       <Button
         title="Go to Details"
         onPress={() => navigation.navigate('Details')}
+      />
+      <Button
+        title="Go to user test screen"
+        onPress={() => navigation.navigate('UsersTestScreen')}
       />
     </View>
   )
