@@ -1,7 +1,9 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView, Touchable} from 'react-native';
 import InputTextField from '../../components/InputTextField';
 import KeyboardAvoidingContainer from '../../components/KeyboardAvoidingContainer';
-
+import SocialButton from '../../components/SocialButton';
+const facebookImg = require("../../assets/Facebook.png")
+const googleImg = require("../../assets/Google.png")
 
 const LoginScreen = () => {
   return (
@@ -11,20 +13,8 @@ const LoginScreen = () => {
                 <Image source = {require('../../assets/logo.png')} style={styles.mainLogo}></Image>
             </View>
             <View style={{marginTop: 48, flexDirection: "row", justifyContent: "center"}}>
-                <TouchableOpacity>
-                <View style={styles.socialButton}>
-                    <Image source = {require('../../assets/Facebook.png')} style={styles.socialLogo}></Image>
-                    <Text style={styles.text}>Facebook</Text>
-                </View>
-                </TouchableOpacity>
-
-
-                <TouchableOpacity>
-                <View style={styles.socialButton}>
-                    <Image source = {require('../../assets/Google.png')} style={styles.socialLogo}></Image>
-                    <Text style={styles.text}>Google</Text>
-                </View>
-                </TouchableOpacity>
+                <SocialButton name={"Facebook"} imageSource={facebookImg}/>
+                <SocialButton name={"Google"} imageSource={googleImg}/>
             </View>
 
             <Text style={[styles.text, {color: "#ABB4BD", fontSize: 15, textAlign: "center", marginVertical: 20}]}

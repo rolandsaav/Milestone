@@ -17,7 +17,6 @@ const Tab = createBottomTabNavigator();
 
 export default function MainContainer(){
     return(
-        <NavigationContainer>
             <Tab.Navigator
                 initialRouteName={homeName}
                 screenOptions={({route}) => ({
@@ -42,6 +41,5 @@ export default function MainContainer(){
                 <Tab.Screen name={profileName} component={Profile}/>
 
             </Tab.Navigator>
-        </NavigationContainer>
     )
 }

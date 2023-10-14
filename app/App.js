@@ -6,21 +6,14 @@ import Goals from './navigation/screens/Goals';
 import Profile from './navigation/screens/Profile';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LoginScreen from './navigation/screens/loginscreen';
+import AuthContainer from './navigation/AuthContainer';
 
 export default function App() {
-  const Stack = createNativeStackNavigator();
-  
+  const user = null;
   return (
-    <MainContainer>
-      <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name="Login" component={LoginScreen}></Stack.Screen>
-          <Stack.Screen name="Home" component={Home}/>
-          <Stack.Screen name="Goals" component={Goals}/>
-          <Stack.Screen name="Profile" component={Profile}/>
-        </Stack.Navigator>
-      </NavigationContainer>
-    </MainContainer>
+    <NavigationContainer>
+      {user != null ? <MainContainer/> : <AuthContainer/>}
+    </NavigationContainer>
   );
 }
 
