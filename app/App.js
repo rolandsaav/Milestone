@@ -14,10 +14,10 @@ export default function App() {
     <MainContainer>
       <NavigationContainer>
         <Stack.Navigator>
+          <Stack.Screen name="Login" component={LoginScreen}></Stack.Screen>
           <Stack.Screen name="Home" component={Home}/>
           <Stack.Screen name="Goals" component={Goals}/>
           <Stack.Screen name="Profile" component={Profile}/>
-          <Stack.Screen name="Login" component={LoginScreen}></Stack.Screen>
         </Stack.Navigator>
       </NavigationContainer>
     </MainContainer>
