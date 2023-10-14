@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const uuid = require("uuid");
-let users = require("../../TestUsers.json");
+let users = require("../../TestUsers");
 
 router.get("/", (req, res) => {
     res.json(users);
@@ -19,12 +19,15 @@ router.get("/:id", (req, res) => {
 
 router.post("/", (req, res) => {
     const newUser = {
-        id: uuid.v4(),
-        name: req.body.name,
-        email: req.body.email
+        uid: uuid.v4(),
+        username: req.body.username,
+        goals: [],
+        friends: []
     };
 
-    if (!newUser.name || !newUser.email) {
+    console.log(newUser.username);
+
+    if (newUser.username === undefined) {
         return res.sendStatus(400);
     }
 

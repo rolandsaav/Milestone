@@ -27,19 +27,33 @@ const UsersTestScreen = ({navigation}) => {
             {isLoading ? (
                 <ActivityIndicator />
             ) : (
+                <View>
                 <FlatList
                     data = {data}
-                    keyExtractor={({id}) => id}
+                    keyExtractor={({uid}) => uid}
                     renderItem={({item: user}) => (
                         <Text>
-                            {user.id}, {user.name}, {user.email}
+                            {user.uid}, {user.username}
                         </Text>
                     )}
                 />
+                <Button title="Add User" onPress={postData}/>
+                </View>
             )}
         </View>
     );
 };
+
+async function postData(url = '', data = {}) {
+    try { 
+        const response = await fetch('http://128.61.63.216:8080/api/users', {
+            method: "POST",
+            body: JSON.stringify({username: "jojojo"})
+        });
+    } catch (error) {
+        console.error(error);
+    }
+}
 
 const styles = StyleSheet.create({
     container: {
