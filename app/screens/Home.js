@@ -5,7 +5,7 @@ const Home = ({navigation}) => {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    fetch("http://128.61.63.216:8000/message")
+    fetch("https://milestone-api-b3wiqyztra-ue.a.run.app/message")
       .then((res) => res.json())
       .then((data) => setMessage(data.message))
       .catch((error) => {
