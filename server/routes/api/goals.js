@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const goals = require("../../GoalData");
 const { goalRef } = require("../../firebase");
+const { v4: uuidv4 } = require('uuid');
 
 //Get goals for user with id
 router.get("/:userId", (req, res) => {
@@ -20,8 +21,10 @@ router.get("/:userId", (req, res) => {
 });
 
 //Create goal for user with id
-router.post("/:userId", (req, res) => {
+router.post("/:userId", async (req, res) => {
     const data = req.body;
+    const doc = goalRef.doc(uuidv4())
+    await doc.set(data)
     goals.push(data);
     res.send(goals)
 });
