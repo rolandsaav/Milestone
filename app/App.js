@@ -1,20 +1,26 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView, Touchable } from 'react-native';
-import Home from './screens/Home';
+import MainContainer from './navigation/MainContainer';
+import Home from './navigation/screens/Home';
+import Goals from './navigation/screens/Goals';
+import Profile from './navigation/screens/Profile';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Details from './screens/Details';
-import LoginScreen from './screens/loginscreen';
+import LoginScreen from './navigation/screens/loginscreen';
+
 export default function App() {
   const Stack = createNativeStackNavigator();
   
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Login" component={LoginScreen}></Stack.Screen>
-        <Stack.Screen name="Home" component={Home}/>
-        <Stack.Screen name="Details" component={Details}/>
-      </Stack.Navigator>
-    </NavigationContainer>
+    <MainContainer>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Home" component={Home}/>
+          <Stack.Screen name="Goals" component={Goals}/>
+          <Stack.Screen name="Profile" component={Profile}/>
+          <Stack.Screen name="Login" component={LoginScreen}></Stack.Screen>
+        </Stack.Navigator>
+      </NavigationContainer>
+    </MainContainer>
   );
 }
 

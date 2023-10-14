@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView, Touchable} from 'react-native';
-import InputTextField from '../components/InputTextField';
-import KeyboardAvoidingContainer from '../components/KeyboardAvoidingContainer';
+import InputTextField from '../../components/InputTextField';
+import KeyboardAvoidingContainer from '../../components/KeyboardAvoidingContainer';
 
 
 const LoginScreen = () => {
@@ -8,12 +8,12 @@ const LoginScreen = () => {
     <KeyboardAvoidingContainer style={styles.container}>
         <View>
             <View style={{marginTop: 60, alignItems: "center", justifyContent: "center"}}>
-                <Image source = {require('../assets/logo.png')} style={styles.mainLogo}></Image>
+                <Image source = {require('../../assets/logo.png')} style={styles.mainLogo}></Image>
             </View>
             <View style={{marginTop: 48, flexDirection: "row", justifyContent: "center"}}>
                 <TouchableOpacity>
                 <View style={styles.socialButton}>
-                    <Image source = {require('../assets/Facebook.png')} style={styles.socialLogo}></Image>
+                    <Image source = {require('../../assets/Facebook.png')} style={styles.socialLogo}></Image>
                     <Text style={styles.text}>Facebook</Text>
                 </View>
                 </TouchableOpacity>
@@ -21,7 +21,7 @@ const LoginScreen = () => {
 
                 <TouchableOpacity>
                 <View style={styles.socialButton}>
-                    <Image source = {require('../assets/Google.png')} style={styles.socialLogo}></Image>
+                    <Image source = {require('../../assets/Google.png')} style={styles.socialLogo}></Image>
                     <Text style={styles.text}>Google</Text>
                 </View>
                 </TouchableOpacity>
@@ -45,7 +45,7 @@ const LoginScreen = () => {
                 <Text style={[styles.text, {color: "#fff", fontWeight: "600", fontSize: 16}]}>Login</Text>
             </TouchableOpacity>
 
-            <Text style={[styles.text, {fontSize: 14, color: "ABB4BD", textAlign: "center", marginTop: 24}]}>
+            <Text style={[styles.text, {fontSize: 14, color: "#ABB4BD", textAlign: "center", marginTop: 24}]}>
                 Don't have an account? <Text style={[styles.text, styles.link]}>Register Now</Text>
             </Text>
         </View>
