@@ -1,14 +1,16 @@
 import { NavigationContainer } from '@react-navigation/native';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView, Touchable } from 'react-native';
 import Home from './screens/Home';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Details from './screens/Details';
+import LoginScreen from './screens/loginscreen';
 export default function App() {
   const Stack = createNativeStackNavigator();
   
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen name="Login" component={LoginScreen}></Stack.Screen>
         <Stack.Screen name="Home" component={Home}/>
         <Stack.Screen name="Details" component={Details}/>
       </Stack.Navigator>
@@ -17,10 +19,22 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+  text: {
+    fontFamily: "Avenir Next",
+    color: "1D2029"
   },
+  socialButton: {
+    flexDirection: "row",
+    marginHorizontal: 12,
+    paddingHorizontal: 30,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: "rgba(171, 180, 189, 0.6)",
+    borderRadius: 4,
+    backgroundColor: "#fff",
+    shadowColor: "rgba(171, 180, 0.35)",
+    shadowOffset: {width: 0, height: 10},
+    shadowOpacity: 1,
+    shadowRadius: 20,
+    elevation: 5
+  }
 });
