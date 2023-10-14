@@ -9,7 +9,7 @@ import LoginScreen from './navigation/screens/loginscreen';
 import AuthContainer from './navigation/AuthContainer';
 
 export default function App() {
-  const user = null;
+  const user = "null";
   return (
     <NavigationContainer>
       {user != null ? <MainContainer/> : <AuthContainer/>}
