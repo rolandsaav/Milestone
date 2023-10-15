@@ -14,7 +14,7 @@ if (typeof atob === 'undefined') {
   global.atob = decode;
 }
 
-export default function CameraScreen() {
+export default function CameraScreen({navigation}) {
   let cameraRef = useRef();
   const [hasCameraPermission, setHasCameraPermission] = useState();
   const [hasMediaLibraryPermission, setHasMediaLibraryPermission] = useState();
@@ -106,7 +106,7 @@ export default function CameraScreen() {
       <View style={styles.buttonContainer}>
         <Button title="Take Pic" onPress={takePic} />
       </View>
-      <StatusBar style="auto" />
+      <StatusBar style="auto"/>
     </Camera>
   );
 }
