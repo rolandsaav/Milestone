@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView, Touchable 
 import MainContainer from './navigation/MainContainer';
 import AuthContainer from './navigation/AuthContainer';
 import React, { useState } from 'react';
+import CameraScreen from './navigation/screens/CameraScreen';
 
 const AuthContext = React.createContext();
 

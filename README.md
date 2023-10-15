@@ -2,7 +2,7 @@
 
 Every day, we set goals for ourselves, but staying motivated and seeing real progress can be tough. According to surveys, the number one reason people give up on their goals is a lack of motivation, often worsened by not seeing tangible results and good old procrastination.
 
-That's where "Milestone" comes in. It's a simple app that helps you reach your goals step by step by journaling the process. Here's how it works: you snap a picture everyday to mark your progress and keep your streak alive. At the end of the month, the app puts together a time-lapse video, showing how far you've come. It's like a visual pat on the back to keep you going and make your journey more rewarding. So, you've got this! Let Milestone help you crush those goals, one step at a time.
+That's where "Milestone" comes in. It's a simple app that helps you reach your goals step by step by journaling the process. Here's how it works: you snap a picture every day to mark your progress and keep your streak alive. At the end of the month, the app puts together a time-lapse video, showing how far you've come. It's like a visual pat on the back to keep you going and make your journey more rewarding. So, you've got this! Let Milestone help you crush those goals, one step at a time.
 
 
 ## 📑Table of Contents
@@ -23,22 +23,22 @@ That's where "Milestone" comes in. It's a simple app that helps you reach your g
 - [💰Ex: Financial Goals](#ex-financial-goals)
 - [🚀Try it Out](#try-it-out)
 - [🎯Target Audience](#target-audience)
-- [🌟What makes us unique](#what-makes-us-unique)
 - [👥Testimonials](#testimonials)
 - [🚀Future Prospects](#future-prospects)
 
   
-
 ## 💁Meet the Team
 - Roland Saavedra
 - Mythri Muralikannan
 - Nevin Gregory
 - Leo Zheng
 
+  
 ## 📍The Problem
 We noticed a common problem: People often set a bunch of goals but have a tough time actually accomplishing them. We've been there too. But why does this happen? To dig into the reasons, we decided to get creative with our thinking and put ourselves in the shoes of our target audience. 
 
 Following the design thinking process was a game-changer for how we approached our work and helped us find our way to the solution.
+
 
 ### 💡Why do people not achieve their goals
 The mental struggle you face when tackling a task is often harder than the task itself. It's this inner battle that often gets the best of us and keeps us from reaching our goals.
@@ -52,6 +52,7 @@ The mental struggle you face when tackling a task is often harder than the task 
 **Improper Planning:** The absence of structured plans and setting overly ambitious goals can be major turning points. When you don't have a clear roadmap for breaking down significant goals into manageable steps, it's easy to feel lost. You can't run unless you learn the walk first. Conversely, pushing yourself too hard can result in burnout.
 
 All of these factors lead to you throwing in the towel on your goals.
+
 
 ### 📊Survey results
 Did you know that a staggering 92 percent of people who set goals never actually achieve them? That's according to research by the University of Scranton.
@@ -68,8 +69,10 @@ Staying on top of your progress and having a feedback system are both extremely 
 
 But how do you keep goals specific and make it a part of your routine?
 
+
 ## 🛠️The Solution
 Utilize Milestone to monitor your goals, establish a consistent routine, and see tangible results. 
+
 
 ### 🤖What is Milestone?
 Milestone is an app designed to journal your journey towards achieving your goals. By pre-defining these goals, you set a commitment to upload a picture of you working on it every day. When you hit the 30-day mark, the app puts together a time-lapse video that shows you just how far you've come. It's like watching your progress unfold right before your eyes! 
@@ -96,6 +99,7 @@ The app interface is pretty straightforward and super user-friendly. Let's break
 
 **Look back at your journal:** Look at little timelapse videos that have the memories of the process from your journal entries. They'll show you just how far you've come on your journey.
 
+
 ### 🧠Why does it work?
 So how does Milestone answer these [Problems](#why-do-people-not-achieve-their-goals)?
 
@@ -111,6 +115,16 @@ You've got this, and your goals are well within reach!
 
 
 ### ✏️Design Thinking Process
+We followed the Design Thinking Process throughout this process in order to have a clear method for what we were doing. 
+**1. Empathize:** Being part of the target audience allowed us to easily step into the shoes of our app's users. We delved into articles and sought out different perspectives to better understand their needs.
+
+**2. Define:** Users need to set clear and specific goals while inculcating a habit of daily steps.
+
+**3. Ideate:** We keep a journal of our daily activities. When we look back at entries from way back, it's like a blast from the past. You can't help but feel a sense of accomplishment when you see how much you've grown. So, why not do the same for your goals? Write down the memories of your journey and watch your progress unfold.
+
+**4. Prototype:**
+**5. Test:**
+
 
 ## 🔌The Tech
 ### 🖥️Backend
@@ -119,16 +133,12 @@ You've got this, and your goals are well within reach!
 ## 🎨Ex: Fox Drawing
 ## 💰Ex: Financial Goals
 ## 🚀Try it Out
+Here's a link to our prototype
+
 ## 🎯Target Audience
-## 🌟What makes us unique: Journal of Memories
+Our app is meant for anyone and everyone who wants to set goals for themselves. The user interface is easy to interact with and we are looking at adding accessibility components.
+
 ## 👥Testimonials
 ## 🚀Future Prospects
-
-## 🎨Ex: Fox Drawing
-## 💰Ex: Financial Goals
-## 🚀Try it Out
-## 🎯Target Audience
-## 🌟What makes us unique
-## 👥Testimonials
-## 🚀Future Prospects
-
+**Accessibility:** 
+**Have better algorithms to calculate goal completion:**

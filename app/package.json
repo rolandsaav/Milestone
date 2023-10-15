@@ -20,7 +20,10 @@
     "react": "18.2.0",
     "react-ionicons": "^4.2.1",
     "react-native": "0.72.5",
-    "react-native-vector-icons": "^10.0.0"
+    "react-native-vector-icons": "^10.0.0",
+    "expo-camera": "~13.4.4",
+    "expo-sharing": "~11.5.0",
+    "expo-media-library": "~15.4.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
