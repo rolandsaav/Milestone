@@ -1,7 +1,6 @@
 import { View, Text, StatusBar, StyleSheet, Button, TextInput, TouchableOpacity, FlatList } from 'react-native';
 import React, { useState, useEffect } from 'react';
 
-
 const Home = ({ navigation }) => {
   const [message, setMessage] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
@@ -21,19 +20,30 @@ const Home = ({ navigation }) => {
     // You can use the 'searchQuery' state for the search term.
     //console.log("Searching for:", searchQuery);
     try {
-        const response = fetch('http://128.61.63.216:8080/api/search/' + searchQuery)
-        const json = (await response).json()
-          .then((data) => {
-            setSearchResults(data);
-          })
+      const response = fetch('http://128.61.63.216:8080/api/search/' + searchQuery);
+      const json = (await response).json().then((data) => {
+        setSearchResults(data);
+      });
     } catch (error) {
-        console.error(error);
+      console.error(error);
     }
   };
 
+  const renderItem = ({ item }) => (
+    <View style={styles.resultItem}>
+      <Text>{item.username}</Text>
+      <Button
+        title="+"
+        onPress={() => {
+          // Add your action for each item here
+        }}
+      />
+    </View>
+  );
+
   return (
     <View style={styles.container}>
-       <View style={styles.searchBarContainer}>
+      <View style={styles.searchBarContainer}>
         <TextInput
           style={styles.searchInput}
           placeholder="Search..."
@@ -47,14 +57,12 @@ const Home = ({ navigation }) => {
           <View style={styles.searchButton}>
             <Text style={styles.searchButtonText}>Search</Text>
           </View>
-        </TouchableOpacity>        
+        </TouchableOpacity>
       </View>
-      <FlatList 
+      <FlatList
         data={searchResults}
         keyExtractor={(item) => item.uid}
-        renderItem={({item}) => (
-          <Text>{item.username}</Text>
-        )}
+        renderItem={renderItem}
       />
       <View style={styles.centerContent}>
         <Text>Home</Text>
@@ -80,7 +88,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 20,
-    width: 300
+    width: 300,
   },
   searchInput: {
     flex: 2,
@@ -105,6 +113,14 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  resultItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    borderBottomWidth: 1,
+    borderBottomColor: 'gray',
+    padding: 10,
   },
 });
 
