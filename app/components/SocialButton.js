@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     },
     text: {
         fontFamily: "Avenir Next",
-        color: "1D2029"
+        color: "#1D2029"
       },
       socialButton: {
         flexDirection: "row",
