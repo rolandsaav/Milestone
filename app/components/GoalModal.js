@@ -7,28 +7,36 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 import { uuidv4 } from '@firebase/util';
 
 
-const GoalModal = ({ visible, changeVisibility }) => {
+const GoalModal = ({ visible, changeVisibility, createGoal}) => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [category, setCategory] = useState('');
     const [start, setStart] = useState(new Date());
+    const [end, setEnd] = useState(new Date());
 
     const onCreate = () => {
         addGoal(title, 0, category)
-        .then(() => changeVisibility(!visible));
     }
     const addGoal = async (title, streak, category) => {
+        const duration = parseInt((end.getTime() - start.getTime()) / (1000 * 3600 * 24))
+        const id = uuidv4()
         try {
+            createGoal(id, title, description, 0, duration, 0);
+            changeVisibility(false);
             const response = await fetch('http://128.61.63.216:8080/api/users/goal', {
                 method: "POST",
                 headers: {
                     Accept: 'application/json',
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ title: title, streak: streak, uid: uuidv4(), category: category, userId: auth.currentUser.uid }),
+                body: JSON.stringify({ title: title, streak: streak, uid: id, category: category, userId: auth.currentUser.uid, duration: duration, description: description }),
             });
+            
         } catch (error) {
             console.error(error);
+        }
+        finally {
+            changeVisibility(false);
         }
     }
     return (
@@ -76,11 +84,11 @@ const GoalModal = ({ visible, changeVisibility }) => {
                             <Text style={styles.fieldTitle}>End Date</Text>
                             <DateTimePicker
                                 accentColor='#17b978'
-                                value={start}
+                                value={end}
                                 onChange={(ev, date) => {
                                     console.log(ev.type);
                                     console.log(ev.nativeEvent);
-                                    setStart(date);
+                                    setEnd(date);
                                 }}
                                 mode="date"
                                 style={styles.datePicker}
@@ -89,7 +97,7 @@ const GoalModal = ({ visible, changeVisibility }) => {
                     </View>
                     <View style={styles.finishContainer}>
                         <TouchableOpacity style={styles.cancel} onPress={() => changeVisibility(!visible)}>
-                            <Text style={styles.fieldTitle}>Close Modal</Text>
+                            <Text style={styles.cancelText}>Close Modal</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.button} onPress={onCreate}>
                             <Text style={styles.fieldTitle}>Create Goal</Text>
@@ -119,6 +127,11 @@ const styles = StyleSheet.create({
     fieldTitle: {
         fontSize: 20,
         marginBottom: 5
+    },
+    cancelText: {
+        fontSize: 20,
+        marginBottom: 5,
+        color: "#FFF"
     },
     picker: {
         padding: 0,

@@ -4,26 +4,26 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import { Slider } from '@react-native-assets/slider'
 import Thumb from './Thumb';
 
-const Goal = ({onAddButtonPressed}) => {
+const Goal = ({onAddButtonPressed, title, description, min, max, value}) => {
   return (
     <View style={styles.goal}>
       <View style={styles.left}>
         <View style={styles.top}>
           <View style={styles.header}>
             <Text style={styles.title}>
-              Title
+              {title}
             </Text>
             <Text style={styles.desc}>
-              Description
+              {description}
             </Text>
           </View>
         </View>
         <View style={styles.bottom}>
           <View style={styles.bl}>
             <Slider 
-              minimumValue={0}
-              maximumValue={30}
-              value={12}
+              minimumValue={min}
+              maximumValue={max}
+              value={value}
               step={1}
               enabled={false}
               trackHeight={20}
