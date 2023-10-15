@@ -49,7 +49,12 @@ router.post("/goal", (req, res) => {
 });
 
 router.post("/friend", (req, res) => {
-    //db.collection('users').doc(String(req.body.))
+    db.collection('users').doc(String(req.body.uid)).update({
+        friends: FieldValue.arrayUnion(req.body.friendId)
+    })
+    db.collection('users').doc(String(req.body.friendId)).update({
+        friends: FieldValue.arrayUnion(req.body.uid);
+    })
 })
 
 router.put("/:id", (req, res) => {
