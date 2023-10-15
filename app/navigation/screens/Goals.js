@@ -14,7 +14,7 @@ import GoalModal from '../../components/GoalModal';
 
 const image = require("../../assets/logo.png")
 
-const GoalsScreen = () => {
+const GoalsScreen = ({navigation}) => {
 	const [title, setTitle] = useState('');
 	const [description, setDescription] = useState('');
 	const [category, setCategory] = useState('Personal');
@@ -43,6 +43,9 @@ const GoalsScreen = () => {
 			setEndDate(new Date());
 		}
 	};
+	const openCamera = (goalId) => {
+		navigation.navigate("Camera");
+	}
 
 	return (
 		<KeyboardAvoidingView
@@ -67,11 +70,12 @@ const GoalsScreen = () => {
 								</TouchableOpacity>
 							</View>
 						</View>
-						<Goal/>
-						<Goal/>
-						<Goal/>
-						<Goal/>
-						<Goal/>
+						<Goal onAddButtonPressed={openCamera}/>
+						<Goal onAddButtonPressed={openCamera}/>
+						<Goal onAddButtonPressed={openCamera}/>
+						<Goal onAddButtonPressed={openCamera}/>
+						<Goal onAddButtonPressed={openCamera}/>
+						<Goal onAddButtonPressed={openCamera}/>
 					</ScrollView>
 
 			</TouchableWithoutFeedback>

@@ -3,9 +3,8 @@ import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView, Touchable 
 import MainContainer from './navigation/MainContainer';
 import AuthContainer from './navigation/AuthContainer';
 import React, { useState } from 'react';
-import CameraScreen from './navigation/screens/CameraScreen';
 
-const AuthContext = React.createContext();
+const AuthContext = React.createContext({});
 
 export default function App() {
   const [user, setUser] = useState(null);
