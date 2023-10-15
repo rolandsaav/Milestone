@@ -1,18 +1,14 @@
 import React, { useState } from 'react';
 import {
-	Button,
 	Keyboard,
 	KeyboardAvoidingView, Platform,
 	StyleSheet,
-	Text, TextInput,
-	TouchableWithoutFeedback,
-	View, Image, TouchableOpacity, ScrollView, Modal, Pressable, SafeAreaView
+	Text, TouchableWithoutFeedback,
+	View, TouchableOpacity, ScrollView
 } from 'react-native';
-import Ionicons from "react-native-vector-icons/Ionicons"
+import Ionicons from "react-native-vector-icons/Ionicons";
 import Goal from '../../components/Goal';
 import GoalModal from '../../components/GoalModal';
-
-const image = require("../../assets/logo.png")
 
 const GoalsScreen = ({navigation}) => {
 	const [title, setTitle] = useState('');
@@ -20,31 +16,41 @@ const GoalsScreen = ({navigation}) => {
 	const [category, setCategory] = useState('Personal');
 	const [startDate, setStartDate] = useState(new Date());
 	const [endDate, setEndDate] = useState(new Date());
-	const [showPicker, setShowPicker] = useState(false); // Manage Picker visibility
 	const [goals, setGoals] = useState([]);
 	const [modalVisible, setModalVisible] = useState(false);
-	const addGoalHandler = () => {
-		if (title.trim()) {
-			setGoals((currentGoals) => [
-				...currentGoals,
-				{
-					id: Math.random().toString(),
-					title: title,
-					description: description,
-					category: category,
-					startDate: startDate,
-					endDate: endDate,
-				},
-			]);
-			setTitle('');
-			setDescription('');
-			setCategory('Personal');
-			setStartDate(new Date());
-			setEndDate(new Date());
-		}
-	};
 	const openCamera = (goalId) => {
-		navigation.navigate("Camera");
+		navigation.navigate("Camera", {goalId});
+		incrementGoal(goalId);
+	}
+
+	const incrementGoal = (goalId) => {
+		const nextGoals = goals.map((g) => {
+			if (g.id === goalId) {
+				g.value = g.value + 1;
+				return g;
+			}
+			else {
+				return g;
+			}
+			
+		})
+		setGoals(nextGoals);
+	}
+
+	const addGoal = (id, titleText, description, min, max, value) => {
+		console.log("Trying to add goal")
+		setGoals([
+			...goals,
+			{
+				id,
+				title: titleText,
+				description,
+				min,
+				max,
+				value
+			}
+		])
+		console.log(goals);
 	}
 
 	return (
@@ -53,7 +59,7 @@ const GoalsScreen = ({navigation}) => {
 			style={styles.container}>
 			<TouchableWithoutFeedback onPress={Keyboard.dismiss}>
 					<ScrollView style={{flex: 1}} contentContainerStyle={styles.center}>
-						<GoalModal visible={modalVisible} changeVisibility={setModalVisible}/>
+						<GoalModal visible={modalVisible} changeVisibility={setModalVisible} createGoal={addGoal}/>
 						<View style={styles.header}>
 							<View style={styles.headerRow}>
 								<Text style={styles.title}>Your Goals</Text>
@@ -70,81 +76,13 @@ const GoalsScreen = ({navigation}) => {
 								</TouchableOpacity>
 							</View>
 						</View>
-						<Goal onAddButtonPressed={openCamera}/>
-						<Goal onAddButtonPressed={openCamera}/>
-						<Goal onAddButtonPressed={openCamera}/>
-						<Goal onAddButtonPressed={openCamera}/>
-						<Goal onAddButtonPressed={openCamera}/>
-						<Goal onAddButtonPressed={openCamera}/>
+						{goals.map((g) => {
+							return <Goal key={g.id} title={g.title} description={g.description} min={g.min} max={g.max} value={g.value} onAddButtonPressed={() => {openCamera(g.id)}}/>
+						})}
 					</ScrollView>
 
 			</TouchableWithoutFeedback>
 		</KeyboardAvoidingView>
-
-		/* <View style={styles.container}>
-		  <View style={styles.inputContainer}>
-			<View style={styles.titleDescriptionBox}>
-			  <TextInput
-				placeholder="Title"
-				style={styles.input}
-				onChangeText={(text) => setTitle(text)}
-				value={title}
-			  />
-			  <TextInput
-				placeholder="Description"
-				style={styles.input}
-				onChangeText={(text) => setDescription(text)}
-				value={description}
-			  />
-			</View>
-			<Button
-			  title="Select Category"
-			  onPress={() => setShowPicker(!showPicker)}
-			/>
-			{showPicker && (
-			  <Picker
-				selectedValue={category}
-				onValueChange={(itemValue) => setCategory(itemValue)}
-				style={styles.picker}
-			  >
-				<Picker.Item label="Personal" value="Personal" />
-				<Picker.Item label="Work" value="Work" />
-				<Picker.Item label="Health" value="Health" />
-				<Picker.Item label="Education" value="Education" />
-			  </Picker>
-			)}
-			<View style={styles.datePickerContainer}>
-			  <Text style={styles.dateLabel}>Start Date:</Text>
-			  <DateTimePicker
-				value={startDate}
-				onChange={(event, selectedDate) => setStartDate(selectedDate)}
-				mode="date"
-				style={styles.datePicker}
-			  />
-			  <Text style={styles.dateLabel}>End Date:</Text>
-			  <DateTimePicker
-				value={endDate}
-				onChange={(event, selectedDate) => setEndDate(selectedDate)}
-				mode="date"
-				style={styles.datePicker}
-			  />
-			</View>
-			<Button title="Add Goal" onPress={addGoalHandler} />
-		  </View>
-		  <FlatList
-			data={goals}
-			keyExtractor={(item) => item.id}
-			renderItem={({ item }) => (
-			  <View style={styles.goalItem}>
-				<Text style={styles.goalText}>{item.title}</Text>
-				<Text style={styles.goalText}>{item.description}</Text>
-				<Text style={styles.goalText}>Category: {item.category}</Text>
-				<Text style={styles.goalText}>Start Date: {item.startDate.toDateString()}</Text>
-				<Text style={styles.goalText}>End Date: {item.endDate.toDateString()}</Text>
-			  </View>
-			)}
-		  />
-		</View> */
 	);
 };
 

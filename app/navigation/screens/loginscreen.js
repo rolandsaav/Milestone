@@ -3,9 +3,9 @@ import InputTextField from '../../components/InputTextField';
 import KeyboardAvoidingContainer from '../../components/KeyboardAvoidingContainer';
 import SocialButton from '../../components/SocialButton';
 import { useContext, useState } from 'react';
-import { AuthContext } from '../../App';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase';
+import { AuthContext } from '../../Providers/Auth';
 const facebookImg = require("../../assets/Facebook.png")
 const googleImg = require("../../assets/Google.png")
 
