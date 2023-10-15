@@ -8,12 +8,10 @@ router.get("/:query", (req, res) => {
         .then((matches) => {
             if (matches.empty) {
                 console.log("No Matches");
-                return;
+                return res.sendStatus(400);
             }
 
-            matches.forEach(user => {
-                console.log(user.data().username);
-            })
+            return res.send(matches.docs.map(doc => doc.data()));
         })
 });
 
