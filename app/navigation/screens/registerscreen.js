@@ -6,6 +6,7 @@ import { auth } from '../../firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../Providers/Auth';
+
 const facebookImg = require("../../assets/Facebook.png")
 const googleImg = require("../../assets/Google.png")
 
@@ -15,6 +16,7 @@ const RegisterScreen = ({ navigation }) => {
     const [password, setPassword] = useState("")
     const [name, setName] = useState("")
     const [username, setUsername] = useState("")
+    const [nameIndex, setNameIndex] = useState([])
 
     const onRegister = () => {
         var uid;
@@ -39,11 +41,20 @@ const RegisterScreen = ({ navigation }) => {
                     Accept: 'application/json',
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ username: username, name: name, uid: uid, email: email }),
+                body: JSON.stringify({ username: username, name: name, uid: uid, email: email, nameIndex: textIndexToArray(username) }),
             });
         } catch (error) {
             console.error(error);
         }
+    }
+
+    const textIndexToArray = (str) => {
+        const string = str.trim().replace(/ +(?= )/g,'')
+        let arr = []
+        for (let i = 0; i < string.trim().length; i++) {
+            arr.push(string.substr(0,i+1).toLowerCase());
+        }
+        return arr
     }
 
     return (
