@@ -6,10 +6,11 @@ import {
 	StyleSheet,
 	Text, TextInput,
 	TouchableWithoutFeedback,
-	View, Image, TouchableOpacity, ScrollView
+	View, Image, TouchableOpacity, ScrollView, Modal, Pressable, SafeAreaView
 } from 'react-native';
 import Ionicons from "react-native-vector-icons/Ionicons"
 import Goal from '../../components/Goal';
+import GoalModal from '../../components/GoalModal';
 
 const image = require("../../assets/logo.png")
 
@@ -21,7 +22,7 @@ const GoalsScreen = () => {
 	const [endDate, setEndDate] = useState(new Date());
 	const [showPicker, setShowPicker] = useState(false); // Manage Picker visibility
 	const [goals, setGoals] = useState([]);
-
+	const [modalVisible, setModalVisible] = useState(false);
 	const addGoalHandler = () => {
 		if (title.trim()) {
 			setGoals((currentGoals) => [
@@ -48,28 +49,30 @@ const GoalsScreen = () => {
 			behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
 			style={styles.container}>
 			<TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-				<ScrollView contentContainerStyle={styles.center}>
-					<View style={styles.header}>
-						<View style={styles.headerRow}>
-							<Text style={styles.title}>Your Goals</Text>
-							<View style={styles.headerButton}>
-								<Ionicons style={styles.headerButtonIcon} name="add-outline" />
+					<ScrollView style={{flex: 1}} contentContainerStyle={styles.center}>
+						<GoalModal visible={modalVisible} changeVisibility={setModalVisible}/>
+						<View style={styles.header}>
+							<View style={styles.headerRow}>
+								<Text style={styles.title}>Your Goals</Text>
+								<TouchableOpacity style={styles.headerButton} onPress={() => setModalVisible(true)}>
+									<Ionicons style={styles.headerButtonIcon} name="add-outline" />
+								</TouchableOpacity>
+							</View>
+							<View style={styles.buttonRow}>
+								<TouchableOpacity style={styles.rectangle4}>
+									<Text style={{}}>Conquering</Text>
+								</TouchableOpacity>
+								<TouchableOpacity style={styles.rectangle5}>
+									<Text style={{ color: "#FFF" }}>Finished</Text>
+								</TouchableOpacity>
 							</View>
 						</View>
-						<View style={styles.buttonRow}>
-							<TouchableOpacity style={styles.rectangle4}>
-								<Text style={{}}>Conquering</Text>
-							</TouchableOpacity>
-							<TouchableOpacity style={styles.rectangle5}>
-								<Text style={{ color: "#FFF" }}>Finished</Text>
-							</TouchableOpacity>
-						</View>
-					</View>
-					<Goal/>
-					<Goal/>
-					<Goal/>
-					<Goal/>
-				</ScrollView>
+						<Goal/>
+						<Goal/>
+						<Goal/>
+						<Goal/>
+						<Goal/>
+					</ScrollView>
 
 			</TouchableWithoutFeedback>
 		</KeyboardAvoidingView>
