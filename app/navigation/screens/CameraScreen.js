@@ -14,7 +14,7 @@ if (typeof atob === 'undefined') {
   global.atob = decode;
 }
 
-export default function CameraScreen({navigation}) {
+export default function CameraScreen({navigation, route}) {
   let cameraRef = useRef();
   const [hasCameraPermission, setHasCameraPermission] = useState();
   const [hasMediaLibraryPermission, setHasMediaLibraryPermission] = useState();
@@ -50,7 +50,6 @@ export default function CameraScreen({navigation}) {
       setHasCameraPermission(cameraPermission.status === "granted");
       setHasMediaLibraryPermission(mediaLibraryPermission.status === "granted");
     })();
-    console.log(`images/${uid}/${imageId}`);
   }, []);
 
   if (hasCameraPermission === undefined) {
@@ -79,15 +78,14 @@ export default function CameraScreen({navigation}) {
     };
 
     let savePhoto = async () => {
-      // MediaLibrary.saveToLibraryAsync(photo.uri).then(() => {
-      //   setPhoto(undefined);
-      // });)
       console.log(photo.uri)
       const imageBlob = await getBlobFroUri(photo.uri)
 
       uploadBytes(imageRef, imageBlob).then((snapshot) => {
         console.log('Uploaded a blob or file!');
-      });
+      }).finally(() => {
+        navigation.navigate("Goals");
+      })
 
     };
 
