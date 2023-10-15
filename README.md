@@ -28,13 +28,20 @@ That's where "Milestone" comes in. It's a simple app that helps you reach your g
 
   
 ## 💁Meet the Team
-- Roland Saavedra (Full-Stack Developer)
+-Roland Saavedra (Full-Stack Developer)
+
 Roland is our versatile full-stack developer who brings a wealth of technical expertise to the team. With a keen eye for detail and a passion for problem-solving, he plays a pivotal role in creating the seamless user experience our product is known for.
+
 -Mythri Muralikannan (Project Manager, Design Lead, and MATLAB)
+
 Mythri is our dynamic project manager and design lead. With an innate talent for both management and creativity, she ensures that our projects are executed with precision and style. Her proficiency in MATLAB adds a unique edge to our technical capabilities.
+
 -Nevin Gregory (Back-End Developer)
+
 Nevin is our dedicated back-end developer, the wizard behind the scenes. His mastery of server-side technologies and data management guarantees that our applications are not only user-friendly but also robust and secure.
+
 -Leo Zheng (Front-End Developer)
+
 Leo is our visionary front-end developer who turns designs into reality. With a passion for creating captivating user interfaces, he ensures that our products are not only functional but also visually appealing.
   
 ## 📍The Problem
@@ -119,6 +126,7 @@ You've got this, and your goals are well within reach!
 
 ### ✏️Design Thinking Process
 We followed the Design Thinking Process throughout this process in order to have a clear method for what we were doing. 
+
 **1. Empathize:** Being part of the target audience allowed us to easily step into the shoes of our app's users. We delved into articles and sought out different perspectives to better understand their needs.
 
 **2. Define:** Users need to set clear and specific goals while inculcating a habit of daily steps.
@@ -131,6 +139,11 @@ We followed the Design Thinking Process throughout this process in order to have
 
 ## 🔌The Tech
 ### 🖥️Backend
+In the development of our front-end, we leveraged the powerful combination of React-Native and Expo, showcasing our dedication to staying at the forefront of modern software development practices.
+
+React-Native, renowned for its versatility and cross-platform capabilities, allowed us to build a mobile application that is not only user-friendly but also efficient. Its component-based structure and extensive library of pre-built components expedited the development process, enabling us to create a seamless user experience.
+
+Expo, on the other hand, played a pivotal role in streamlining our development workflow. This comprehensive framework provided a range of essential tools and services, making the development and deployment of our application a smooth and efficient process. It allowed us to focus on crafting the best user interface and experience possible, while Expo handled many of the technical intricacies.
 ### 🖱️Frontend
 ### 📊MATLAB
 ## 🎨Ex: Fox Drawing
