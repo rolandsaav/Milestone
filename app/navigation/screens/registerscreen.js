@@ -95,5 +95,61 @@ const RegisterScreen = ({ navigation }) => {
     )
 };
 
+const styles = StyleSheet.create({
+    container: {
+        felx: 1,
+        backgroundColor: "#fff",
+        paddingHorizontal: 30
+    },
+    text: {
+        fontFamily: "Avenir Next",
+        color: "#1D2029"
+    },
+    socialButton: {
+        flexDirection: "row",
+        marginHorizontal: 12,
+        paddingVertical: 12,
+        paddingHorizontal: 30,
+        borderWidth: StyleSheet.hairlineWidth,
+        borderColor: "rgba(171, 180, 189, 0.65)",
+        borderRadius: 4,
+        backgroundColor: "#fff",
+        shadowColor: "rgba(171, 180, 0.35)",
+        shadowOffset: { width: 0, height: 5 },
+        shadowOpacity: .5,
+        shadowRadius: 5,
+        elevation: 1
+    },
+    mainLogo: {
+        width: 300,
+        height: 200,
+        marginRight: 8,
+    },
+    socialLogo: {
+        width: 16,
+        height: 16,
+        marginRight: 8,
+    },
+    link: {
+        color: "#17b978",
+        fontSize: 14,
+        fontWeight: "500"
+    },
+    submitContainer: {
+        backgroundColor: "#17b978",
+        fontSize: 16,
+        borderRadius: 4,
+        paddingVertical: 12,
+        marginTop: 32,
+        alignItems: "center",
+        justifyContent: "center",
+        shadowColor: "rgba(171, 180, 0.35)",
+        shadowOffset: { width: 0, height: 5 },
+        shadowOpacity: .5,
+        shadowRadius: 5,
+    }
+});
+
+
 
 export default RegisterScreen;
