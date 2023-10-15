@@ -1,10 +1,11 @@
-import { View, Text, StatusBar, StyleSheet, Button, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, StatusBar, StyleSheet, Button, TextInput, TouchableOpacity, FlatList } from 'react-native';
 import React, { useState, useEffect } from 'react';
 
 
 const Home = ({ navigation }) => {
   const [message, setMessage] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
     fetch("https://milestone-api-b3wiqyztra-ue.a.run.app/message")
@@ -15,12 +16,16 @@ const Home = ({ navigation }) => {
       });
   }, []);
 
-  const handleSearch = () => {
+  const handleSearch = async () => {
     // Implement your search logic here
     // You can use the 'searchQuery' state for the search term.
     //console.log("Searching for:", searchQuery);
     try {
-        const response = fetch('http://128.61.63.216:8080/api/search/' + searchQuery);
+        const response = fetch('http://128.61.63.216:8080/api/search/' + searchQuery)
+        const json = (await response).json()
+          .then((data) => {
+            setSearchResults(data);
+          })
     } catch (error) {
         console.error(error);
     }
@@ -28,7 +33,7 @@ const Home = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.searchBarContainer}>
+       <View style={styles.searchBarContainer}>
         <TextInput
           style={styles.searchInput}
           placeholder="Search..."
@@ -42,8 +47,15 @@ const Home = ({ navigation }) => {
           <View style={styles.searchButton}>
             <Text style={styles.searchButtonText}>Search</Text>
           </View>
-        </TouchableOpacity>
+        </TouchableOpacity>        
       </View>
+      <FlatList 
+        data={searchResults}
+        keyExtractor={(item) => item.uid}
+        renderItem={({item}) => (
+          <Text>{item.username}</Text>
+        )}
+      />
       <View style={styles.centerContent}>
         <Text>Home</Text>
         <Text>{message}</Text>
