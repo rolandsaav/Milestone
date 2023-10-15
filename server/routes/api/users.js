@@ -53,7 +53,7 @@ router.post("/friend", (req, res) => {
         friends: FieldValue.arrayUnion(req.body.friendId)
     })
     db.collection('users').doc(String(req.body.friendId)).update({
-        friends: FieldValue.arrayUnion(req.body.uid);
+        friends: FieldValue.arrayUnion(req.body.uid)
     })
 })
 
