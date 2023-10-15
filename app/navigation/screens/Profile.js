@@ -18,7 +18,7 @@ const Profile = () => {
 
   useEffect(() => {
     getUserInfo();
-  }, []);
+  });
   return (
     <View style={styles.container}>
       <View style={styles.header}>
