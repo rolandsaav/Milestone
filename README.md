@@ -172,7 +172,7 @@ Additionally, we intended to utilize MATLAB for:
 ## 🎨Ex: Drawing
 Here's an example video created with pictures of [someone's](https://www.youtube.com/watch?v=mF81VV7FAmk) drawings over the years. You can distinctly see the progress being made. 
 
-[Video](#https://drive.google.com/file/d/15N9eYZr5UbWsADjCJ5rBopxVTyhmvTEt/view?usp=sharing)
+[Video](https://drive.google.com/file/d/15N9eYZr5UbWsADjCJ5rBopxVTyhmvTEt/view?usp=sharing)
 
 ## 💰Ex: Financial Goals
 
