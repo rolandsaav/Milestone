@@ -9,6 +9,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
 app.use("/api/users", require("./routes/api/users"));
+app.use("/api/search", require("./routes/api/search"));
 
 app.listen(8080, () =>
     console.log("Server started yuhh")

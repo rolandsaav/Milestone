@@ -8,10 +8,11 @@ import Home from "./screens/Home";
 import Goals from "./screens/Goals";
 import Profile from "./screens/Profile";
 import { SafeAreaView } from "react-native";
+import GoalStack from "./GoalStack";
 
 //Screen Names
 const homeName = "Home";
-const goalName = "Goals";
+const goalName = "GoalNav";
 const profileName = "Profile";
 
 const Tab = createBottomTabNavigator();
@@ -40,7 +41,7 @@ export default function MainContainer(){
                 })}>
 
                 <Tab.Screen name={homeName} component={Home}/>
-                <Tab.Screen name={goalName} component={Goals}/>
+                <Tab.Screen name={goalName} component={GoalStack}/>
                 <Tab.Screen name={profileName} component={Profile}/>
 
             </Tab.Navigator>
