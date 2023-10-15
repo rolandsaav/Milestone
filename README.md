@@ -28,11 +28,14 @@ That's where "Milestone" comes in. It's a simple app that helps you reach your g
 
   
 ## 💁Meet the Team
-- Roland Saavedra
-- Mythri Muralikannan
-- Nevin Gregory
-- Leo Zheng
-
+- Roland Saavedra (Full-Stack Developer)
+Roland is our versatile full-stack developer who brings a wealth of technical expertise to the team. With a keen eye for detail and a passion for problem-solving, he plays a pivotal role in creating the seamless user experience our product is known for.
+-Mythri Muralikannan (Project Manager, Design Lead, and MATLAB)
+Mythri is our dynamic project manager and design lead. With an innate talent for both management and creativity, she ensures that our projects are executed with precision and style. Her proficiency in MATLAB adds a unique edge to our technical capabilities.
+-Nevin Gregory (Back-End Developer)
+Nevin is our dedicated back-end developer, the wizard behind the scenes. His mastery of server-side technologies and data management guarantees that our applications are not only user-friendly but also robust and secure.
+-Leo Zheng (Front-End Developer)
+Leo is our visionary front-end developer who turns designs into reality. With a passion for creating captivating user interfaces, he ensures that our products are not only functional but also visually appealing.
   
 ## 📍The Problem
 We noticed a common problem: People often set a bunch of goals but have a tough time actually accomplishing them. We've been there too. But why does this happen? To dig into the reasons, we decided to get creative with our thinking and put ourselves in the shoes of our target audience. 
