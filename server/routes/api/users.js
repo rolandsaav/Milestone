@@ -30,7 +30,7 @@ router.post("/", (req, res) => {
     if (newUser.username === undefined) {
         return res.sendStatus(400);
     }
-    const dbRef = db.collection('users').doc(String(newUser.uid)).set(newUser);
+    db.collection('users').doc(String(newUser.uid)).set(newUser);
 });
 
 router.put("/:id", (req, res) => {
