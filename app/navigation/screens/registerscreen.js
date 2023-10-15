@@ -15,6 +15,7 @@ const RegisterScreen = ({ navigation }) => {
     const [password, setPassword] = useState("")
     const [name, setName] = useState("")
     const [username, setUsername] = useState("")
+
     const onRegister = () => {
         var uid;
         createUserWithEmailAndPassword(auth, email, password)
@@ -29,6 +30,7 @@ const RegisterScreen = ({ navigation }) => {
                 console.error(error);
             });
     }
+
     const addUser = async (uid, username, name, email) => {
         try {
             const response = await fetch('http://128.61.63.216:8080/api/users', {
@@ -149,7 +151,5 @@ const styles = StyleSheet.create({
         shadowRadius: 5,
     }
 });
-
-
 
 export default RegisterScreen;
