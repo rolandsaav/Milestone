@@ -77,8 +77,7 @@ const RegisterScreen = ({navigation}) => {
             </Text>
         </View>
     </KeyboardAvoidingContainer>
-  )
-}
+  )}
 
 async function addUser(uid = '', username = '', name = '', email = '') {
     try { 
@@ -150,4 +149,4 @@ const styles = StyleSheet.create({
     }
   });
 
-  export default RegisterScreen
+  export default RegisterScreen;
