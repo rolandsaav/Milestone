@@ -4,10 +4,6 @@ const router = express.Router();
 let users = require("../../TestUsers");
 const { FieldValue } = require("@google-cloud/firestore");
 
-router.get("/", (req, res) => {
-    res.json(users);
-});
-
 router.get("/:id", (req, res) => {
     const userInfo = db.collection('users').doc(String(req.params.id)).get()
         .then((userInfo) => {
@@ -24,7 +20,8 @@ router.post("/", (req, res) => {
         uid: req.body.uid,
         username: req.body.username,
         goals: [],
-        friends: []
+        friends: [],
+        nameIndex: req.body.nameIndex
     };
 
     if (newUser.username === undefined) {
@@ -56,23 +53,6 @@ router.post("/friend", (req, res) => {
         friends: FieldValue.arrayUnion(req.body.uid)
     })
 })
-
-router.put("/:id", (req, res) => {
-    const found = users.some(user => user.id === parseInt(req.params.id));
-
-    if (found) {
-        const updateUser = req.body;
-        users.forEach(user => {
-            if (user.id === parseInt(req.params.id)) {
-                user.name = updateUser.name ? updateUser.name : user.name;
-                user.email = updateUser.email ? updateUser.email : user.email;
-                res.json({msg: "User Updated", user});
-            }
-        });
-    } else {
-        res.sendStatus(400);
-    }
-});
 
 router.delete("/:id", (req, res) => {
     const found = users.some(user => user.id === parseInt(req.params.id));

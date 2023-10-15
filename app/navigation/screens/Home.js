@@ -1,6 +1,7 @@
 import { View, Text, StatusBar, StyleSheet, Button, TextInput, TouchableOpacity } from 'react-native';
 import React, { useState, useEffect } from 'react';
 
+
 const Home = ({ navigation }) => {
   const [message, setMessage] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
@@ -17,7 +18,12 @@ const Home = ({ navigation }) => {
   const handleSearch = () => {
     // Implement your search logic here
     // You can use the 'searchQuery' state for the search term.
-    console.log("Searching for:", searchQuery);
+    //console.log("Searching for:", searchQuery);
+    try {
+        const response = fetch('http://128.61.63.216:8080/api/search/' + searchQuery);
+    } catch (error) {
+        console.error(error);
+    }
   };
 
   return (
@@ -26,7 +32,10 @@ const Home = ({ navigation }) => {
         <TextInput
           style={styles.searchInput}
           placeholder="Search..."
-          onChangeText={(text) => setSearchQuery(text)}
+          onChangeText={(text) => {
+            setSearchQuery(text);
+            console.log(text);
+          }}
           value={searchQuery}
         />
         <TouchableOpacity onPress={handleSearch}>
