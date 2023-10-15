@@ -195,7 +195,13 @@ In addition to goal-setting, our app allows users to keep track of their persona
 
 
 ## 🚀Try it Out
-Here's a link to our prototype
+Here's a link to our Figma prototype:
+https://www.figma.com/proto/wTVtBTPLLrAr7wW7i9fcLm/Milestone?type=design&node-id=16-19&t=SCwc9EONcPKIQpKZ-1&scaling=scale-down&page-id=0%3A1&starting-point-node-id=16%3A19&mode=design
+
+If you want to run this yourself, clone the repository and run "npm install" in the server and app directories.
+You can run the mobile app with "npm run start" and the server with "npm run dev."
+For the server to work, you will likely need to create your own firebase project and link it with a JSON certificate.
+
 
 ## 🎯Target Audience
 Our app is meant for anyone and everyone who wants to set goals for themselves. The user interface is easy to interact with and we are looking at adding accessibility components.
