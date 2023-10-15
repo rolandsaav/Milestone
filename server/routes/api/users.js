@@ -39,14 +39,19 @@ router.post("/goal", (req, res) => {
         uid: req.body.uid,
         goal: req.body.goal,
         streak: 0,
-        userId: req.body.userUid
+        userId: req.body.userId,
+        category: req.body.category
     };
 
-    db.collection('users').doc(String(newGoal.userUid)).update({
+    db.collection('users').doc(String(newGoal.userId)).update({
         goal: FieldValue.arrayUnion(newGoal)
     });
     db.collection('goals').doc(String(newGoal.uid)).set(newGoal);
 });
+
+router.post("/friend", (req, res) => {
+    db.collection('users').doc(String(req.body.))
+})
 
 router.put("/:id", (req, res) => {
     const found = users.some(user => user.id === parseInt(req.params.id));
@@ -80,6 +85,15 @@ router.delete("/:id", (req, res) => {
 
 router.delete("/goal/:id", (req, res) => {
     //TODO
+    db.collection('goals').doc(req.body.uid).delete()
+    .then(() => {
+        console.log("deleted goal")
+        db.collection('users').doc(req.body.userId).update({
+            goal: FieldValue.arrayRemove()
+        })
+    }).catch((error) => {
+        console.log(error);
+    })
 })
 
 module.exports = router;
