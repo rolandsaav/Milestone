@@ -1,7 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
+import { auth } from '../../firebase';
 
 const Profile = () => {
+  const [userData, setUserData] = useState({});
+  const getUserInfo = async () => {
+    try {
+      const response = fetch('http://128.61.63.216:8080/api/users/' + auth.currentUser.uid)
+      const json = (await response).json()
+        .then((data) => {
+          setUserData(data);
+        })
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  useEffect(() => {
+    getUserInfo();
+  }, []);
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -12,8 +29,8 @@ const Profile = () => {
         />
       </View>
       <View style={styles.textContainer}>
-        <Text style={styles.name}>Your Name</Text>
-        <Text style={styles.username}>@your_username</Text>
+        <Text style={styles.name}>{userData.name}</Text>
+        <Text style={styles.username}>@{userData.username}</Text>
         <Text style={styles.bio}>Write a short bio about yourself here.</Text>
       </View>
     </View>

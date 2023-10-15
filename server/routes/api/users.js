@@ -9,13 +9,12 @@ router.get("/", (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
-    const found = users.some(user => user.id === parseInt(req.params.id));
-
-    if (found) {
-        res.json(users.filter(user => user.id === parseInt(req.params.id)));
-    } else {
-        res.sendStatus(400);
-    }
+    const userInfo = db.collection('users').doc(String(req.params.id)).get()
+        .then((userInfo) => {
+            return res.json(userInfo.data());
+        }).catch((error) => {
+            console.log(error);
+        })
 });
 
 router.post("/", (req, res) => {
@@ -35,22 +34,22 @@ router.post("/", (req, res) => {
 });
 
 router.post("/goal", (req, res) => {
+    console.log(req.body);
     const newGoal = {
         uid: req.body.uid,
-        goal: req.body.goal,
+        title: req.body.title,
         streak: 0,
-        userId: req.body.userId,
         category: req.body.category
     };
 
-    db.collection('users').doc(String(newGoal.userId)).update({
-        goal: FieldValue.arrayUnion(newGoal)
+    db.collection('users').doc(String(req.body.userId)).update({
+        goals: FieldValue.arrayUnion(newGoal)
     });
     db.collection('goals').doc(String(newGoal.uid)).set(newGoal);
 });
 
 router.post("/friend", (req, res) => {
-    db.collection('users').doc(String(req.body.))
+    //db.collection('users').doc(String(req.body.))
 })
 
 router.put("/:id", (req, res) => {

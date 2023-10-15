@@ -15,7 +15,7 @@ const RegisterScreen = ({ navigation }) => {
     const [password, setPassword] = useState("")
     const [name, setName] = useState("")
     const [username, setUsername] = useState("")
-    
+
     const onRegister = () => {
         var uid;
         createUserWithEmailAndPassword(auth, email, password)
@@ -152,10 +152,4 @@ const styles = StyleSheet.create({
     }
 });
 
-<<<<<<< HEAD
-  export default RegisterScreen;
-=======
-
-
 export default RegisterScreen;
->>>>>>> main
