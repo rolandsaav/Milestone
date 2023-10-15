@@ -19,11 +19,10 @@ That's where "Milestone" comes in. It's a simple app that helps you reach your g
   - [🖥️Backend](#backend)
   - [🖱️Frontend](#frontend)
   - [📊MATLAB](#matlab)
-- [🎨Ex: Fox Drawing](#ex-fox-drawing)
+- [🎨Ex: Drawing](#ex-drawing)
 - [💰Ex: Financial Goals](#ex-financial-goals)
 - [🚀Try it Out](#try-it-out)
 - [🎯Target Audience](#target-audience)
-- [👥Testimonials](#testimonials)
 - [🚀Future Prospects](#future-prospects)
 
   
@@ -139,22 +138,53 @@ We followed the Design Thinking Process throughout this process in order to have
 
 ## 🔌The Tech
 ### 🖥️Backend
-In the development of our front-end, we leveraged the powerful combination of React-Native and Expo, showcasing our dedication to staying at the forefront of modern software development practices.
+In the development of our back end, we leveraged the powerful combination of React-Native and Expo, showcasing our dedication to staying at the forefront of modern software development practices.
 
 React-Native, renowned for its versatility and cross-platform capabilities, allowed us to build a mobile application that is not only user-friendly but also efficient. Its component-based structure and extensive library of pre-built components expedited the development process, enabling us to create a seamless user experience.
 
 Expo, on the other hand, played a pivotal role in streamlining our development workflow. This comprehensive framework provided a range of essential tools and services, making the development and deployment of our application a smooth and efficient process. It allowed us to focus on crafting the best user interface and experience possible, while Expo handled many of the technical intricacies.
+
+The database is backed up on the Google Cloud. The language we used is JavaScript and used VSCode to collaborate. Our backend server was Node.js.
+
 ### 🖱️Frontend
+Our front end comprised two distinct components: Figma and React Native.
+
+In Figma, we crafted a prototype to visualize the app's design, focusing on branding and personal toolkit elements. React Native then materialized this prototype into our fully functional app.
+
 ### 📊MATLAB
-## 🎨Ex: Fox Drawing
+MATLAB is what we used for Image Processing and creating the video. Here are the steps we used. 
+
+- Pull the data in from the cloud
+- Process the images
+  - Scale brightness
+  - Add a filter to remove noise
+  - Resize the images to fit in the frame
+  - Blend the images for a smooth transition between the pictures.
+  - Add some background music
+- Upload the video back onto Google Cloud
+
+Additionally, we intended to utilize MATLAB for:
+
+- Assessing picture similarity to a reference end goal.
+- Providing user statistics within the app.
+
+
+## 🎨Ex: Drawing
+Here's an example video created with pictures of [someone's](https://www.youtube.com/watch?v=mF81VV7FAmk) drawings over the years. You can distinctly see the progress being made. 
+
+[Video](#https://drive.google.com/file/d/15N9eYZr5UbWsADjCJ5rBopxVTyhmvTEt/view?usp=sharing)
+
 ## 💰Ex: Financial Goals
+
+
 ## 🚀Try it Out
 Here's a link to our prototype
 
 ## 🎯Target Audience
 Our app is meant for anyone and everyone who wants to set goals for themselves. The user interface is easy to interact with and we are looking at adding accessibility components.
 
-## 👥Testimonials
 ## 🚀Future Prospects
-**Accessibility:** 
-**Have better algorithms to calculate goal completion:**
+**Accessibility:** We want to make our app accessible to people hard of hearing and sight. Since we aim to include anyone and everyone in our target audience.
+**Have better algorithms to calculate goal completion:** We were looking at using AI Models for pattern analysis and training them with data sets to calculate goal completion.
+**Leaderboard:** Each task gets you points and you get on a leaderboard with your friends. The competitiveness combined with the commitment that you have made creates the perfect accountability partner for your goals.
+
