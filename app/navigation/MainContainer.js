@@ -12,7 +12,7 @@ import GoalStack from "./GoalStack";
 
 //Screen Names
 const homeName = "Home";
-const goalName = "Goals";
+const goalName = "GoalNav";
 const profileName = "Profile";
 
 const Tab = createBottomTabNavigator();
