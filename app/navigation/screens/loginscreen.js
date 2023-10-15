@@ -17,7 +17,8 @@ const LoginScreen = ({ navigation }) => {
         signInWithEmailAndPassword(auth, email, password)
         .then((userCred) => {
             const loggedIn = userCred.user;
-            setUser(loggedIn);
+            console.log(loggedIn);
+            setUser({...loggedIn});
         })
         .catch((error) => {
             console.log(error);

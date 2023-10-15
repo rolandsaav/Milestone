@@ -1,15 +1,47 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, SafeAreaView, Button, Image } from 'react-native';
-import { useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { Camera } from 'expo-camera';
 import { shareAsync } from 'expo-sharing';
 import * as MediaLibrary from 'expo-media-library';
+import { bucket } from '../../firebase';
+import { getStorage, ref, uploadString, uploadBytes } from "firebase/storage";
+import { AuthContext } from "../../App"
+import uuid from 'react-native-uuid';
+import { decode } from 'base-64';
 
-export default function CameraScreen() {
+if (typeof atob === 'undefined') {
+  global.atob = decode;
+}
+
+export default function CameraScreen({navigation}) {
   let cameraRef = useRef();
   const [hasCameraPermission, setHasCameraPermission] = useState();
   const [hasMediaLibraryPermission, setHasMediaLibraryPermission] = useState();
   const [photo, setPhoto] = useState();
+  const user = useContext(AuthContext)
+  const imagesRef = ref(bucket, 'images');
+  const uid = user[0].uid
+  const imageId = uuid.v4();
+  const imageRef = ref(bucket, `images/${uid}/${imageId}`)
+
+  const getBlobFroUri = async (uri) => {
+    const blob = await new Promise((resolve, reject) => {
+      const xhr = new XMLHttpRequest();
+      xhr.onload = function () {
+        resolve(xhr.response);
+      };
+      xhr.onerror = function (e) {
+        reject(new TypeError("Network request failed"));
+      };
+      xhr.responseType = "blob";
+      xhr.open("GET", uri, true);
+      xhr.send(null);
+    });
+  
+    return blob;
+  };
+
 
   useEffect(() => {
     (async () => {
@@ -18,6 +50,7 @@ export default function CameraScreen() {
       setHasCameraPermission(cameraPermission.status === "granted");
       setHasMediaLibraryPermission(mediaLibraryPermission.status === "granted");
     })();
+    console.log(`images/${uid}/${imageId}`);
   }, []);
 
   if (hasCameraPermission === undefined) {
@@ -35,6 +68,7 @@ export default function CameraScreen() {
 
     let newPhoto = await cameraRef.current.takePictureAsync(options);
     setPhoto(newPhoto);
+    
   };
 
   if (photo) {
@@ -44,10 +78,17 @@ export default function CameraScreen() {
       });
     };
 
-    let savePhoto = () => {
-      MediaLibrary.saveToLibraryAsync(photo.uri).then(() => {
-        setPhoto(undefined);
+    let savePhoto = async () => {
+      // MediaLibrary.saveToLibraryAsync(photo.uri).then(() => {
+      //   setPhoto(undefined);
+      // });)
+      console.log(photo.uri)
+      const imageBlob = await getBlobFroUri(photo.uri)
+
+      uploadBytes(imageRef, imageBlob).then((snapshot) => {
+        console.log('Uploaded a blob or file!');
       });
+
     };
 
     return (
@@ -65,7 +106,7 @@ export default function CameraScreen() {
       <View style={styles.buttonContainer}>
         <Button title="Take Pic" onPress={takePic} />
       </View>
-      <StatusBar style="auto" />
+      <StatusBar style="auto"/>
     </Camera>
   );
 }
