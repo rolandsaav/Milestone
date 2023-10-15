@@ -9,7 +9,7 @@ import { AuthContext } from '../../App';
 const facebookImg = require("../../assets/Facebook.png")
 const googleImg = require("../../assets/Google.png")
 
-const RegisterScreen = ({navigation}) => {
+const RegisterScreen = ({ navigation }) => {
     const [user, setUser] = useContext(AuthContext)
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -101,23 +101,23 @@ const styles = StyleSheet.create({
         paddingHorizontal: 30
     },
     text: {
-      fontFamily: "Avenir Next",
-      color: "#1D2029"
+        fontFamily: "Avenir Next",
+        color: "#1D2029"
     },
     socialButton: {
-      flexDirection: "row",
-      marginHorizontal: 12,
-      paddingVertical: 12,
-      paddingHorizontal: 30,
-      borderWidth: StyleSheet.hairlineWidth,
-      borderColor: "rgba(171, 180, 189, 0.65)",
-      borderRadius: 4,
-      backgroundColor: "#fff",
-      shadowColor: "rgba(171, 180, 0.35)",
-      shadowOffset: {width: 0, height: 5},
-      shadowOpacity: .5,
-      shadowRadius: 5,
-      elevation: 1
+        flexDirection: "row",
+        marginHorizontal: 12,
+        paddingVertical: 12,
+        paddingHorizontal: 30,
+        borderWidth: StyleSheet.hairlineWidth,
+        borderColor: "rgba(171, 180, 189, 0.65)",
+        borderRadius: 4,
+        backgroundColor: "#fff",
+        shadowColor: "rgba(171, 180, 0.35)",
+        shadowOffset: { width: 0, height: 5 },
+        shadowOpacity: .5,
+        shadowRadius: 5,
+        elevation: 1
     },
     mainLogo: {
         width: 300,
@@ -143,10 +143,10 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         shadowColor: "rgba(171, 180, 0.35)",
-        shadowOffset: {width: 0, height: 5},
+        shadowOffset: { width: 0, height: 5 },
         shadowOpacity: .5,
         shadowRadius: 5,
     }
-  });
+});
 
   export default RegisterScreen;

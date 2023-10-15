@@ -7,7 +7,7 @@ const Profile = () => {
       <View style={styles.header}>
         <Text style={styles.profileText}>Your Profile</Text>
         <Image
-          source={require('../../assets/favicon.png')}
+          source={require('../../assets/default.png')}
           style={styles.profileImage}
         />
       </View>
