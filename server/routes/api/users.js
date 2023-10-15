@@ -2,19 +2,19 @@ const db = require("../../firebase").db;
 const express = require("express");
 const router = express.Router();
 let users = require("../../TestUsers");
+const { FieldValue } = require("@google-cloud/firestore");
 
 router.get("/", (req, res) => {
     res.json(users);
 });
 
 router.get("/:id", (req, res) => {
-    const found = users.some(user => user.id === parseInt(req.params.id));
-
-    if (found) {
-        res.json(users.filter(user => user.id === parseInt(req.params.id)));
-    } else {
-        res.sendStatus(400);
-    }
+    const userInfo = db.collection('users').doc(String(req.params.id)).get()
+        .then((userInfo) => {
+            return res.json(userInfo.data());
+        }).catch((error) => {
+            console.log(error);
+        })
 });
 
 router.post("/", (req, res) => {
@@ -32,6 +32,25 @@ router.post("/", (req, res) => {
     }
     db.collection('users').doc(String(newUser.uid)).set(newUser);
 });
+
+router.post("/goal", (req, res) => {
+    console.log(req.body);
+    const newGoal = {
+        uid: req.body.uid,
+        title: req.body.title,
+        streak: 0,
+        category: req.body.category
+    };
+
+    db.collection('users').doc(String(req.body.userId)).update({
+        goals: FieldValue.arrayUnion(newGoal)
+    });
+    db.collection('goals').doc(String(newGoal.uid)).set(newGoal);
+});
+
+router.post("/friend", (req, res) => {
+    //db.collection('users').doc(String(req.body.))
+})
 
 router.put("/:id", (req, res) => {
     const found = users.some(user => user.id === parseInt(req.params.id));
@@ -62,5 +81,18 @@ router.delete("/:id", (req, res) => {
         res.sendStatus(400);
     }
 });
+
+router.delete("/goal/:id", (req, res) => {
+    //TODO
+    db.collection('goals').doc(req.body.uid).delete()
+    .then(() => {
+        console.log("deleted goal")
+        db.collection('users').doc(req.body.userId).update({
+            goal: FieldValue.arrayRemove()
+        })
+    }).catch((error) => {
+        console.log(error);
+    })
+})
 
 module.exports = router;
