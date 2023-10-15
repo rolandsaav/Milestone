@@ -122,9 +122,9 @@ We followed the Design Thinking Process throughout this process in order to have
 
 **3. Ideate:** We keep a journal of our daily activities. When we look back at entries from way back, it's like a blast from the past. You can't help but feel a sense of accomplishment when you see how much you've grown. So, why not do the same for your goals? Write down the memories of your journey and watch your progress unfold.
 
-**4. Prototype:**
-**5. Test:**
+**4. Prototype:** To turn this idea into a tangible solution, we created a digital prototype of the app. This interactive model allowed us to visualize how users would track their daily steps, set goals, and document their progress. It provided a hands-on experience for testing and refining our concept.
 
+**5. Test:** To ensure our app met the needs and expectations of our target users, we will conduct tests. We will gather feedback from a diverse group of potential users, observing how they interact with the prototype. Their input will help us identify areas for improvement, refine the user experience, and fine-tune the app's features. Through multiple testing cycles, we iteratively enhanced the app's usability and functionality, ensuring it truly served its purpose.
 
 ## 🔌The Tech
 ### 🖥️Backend
