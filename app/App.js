@@ -12,7 +12,7 @@ export default function App() {
   return (
     <AuthContext.Provider value={[user, setUser]}>
     <NavigationContainer>
-     {user == null ? <AuthContainer/> : <CameraScreen/>}
+     {user == null ? <AuthContainer/> : <MainContainer/>}
     </NavigationContainer>
     </AuthContext.Provider>
   );
