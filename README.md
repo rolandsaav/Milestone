@@ -19,6 +19,7 @@ That's where "Milestone" comes in. It's a simple app that helps you reach your g
   - [🖥️Backend](#backend)
   - [🖱️Frontend](#frontend)
   - [📊MATLAB](#matlab)
+- [💢Challenges](#challenges)
 - [🎨Ex: Drawing](#ex-drawing)
 - [💰Ex: Financial Goals](#ex-financial-goals)
 - [🚀Try it Out](#try-it-out)
@@ -27,19 +28,19 @@ That's where "Milestone" comes in. It's a simple app that helps you reach your g
 
   
 ## 💁Meet the Team
--Roland Saavedra (Full-Stack Developer)
+-**Roland Saavedra** (Full-Stack Developer)
 
 Roland is our versatile full-stack developer who brings a wealth of technical expertise to the team. With a keen eye for detail and a passion for problem-solving, he plays a pivotal role in creating the seamless user experience our product is known for.
 
--Mythri Muralikannan (Project Manager, Design Lead, and MATLAB)
+-**Mythri Muralikannan** (Project Manager, Design Lead, and MATLAB)
 
 Mythri is our dynamic project manager and design lead. With an innate talent for both management and creativity, she ensures that our projects are executed with precision and style. Her proficiency in MATLAB adds a unique edge to our technical capabilities.
 
--Nevin Gregory (Back-End Developer)
+-**Nevin Gregory** (Back-End Developer)
 
 Nevin is our dedicated back-end developer, the wizard behind the scenes. His mastery of server-side technologies and data management guarantees that our applications are not only user-friendly but also robust and secure.
 
--Leo Zheng (Front-End Developer)
+-**Leo Zheng** (Front-End Developer)
 
 Leo is our visionary front-end developer who turns designs into reality. With a passion for creating captivating user interfaces, he ensures that our products are not only functional but also visually appealing.
   
@@ -168,14 +169,16 @@ Additionally, we intended to utilize MATLAB for:
 - Assessing picture similarity to a reference end goal.
 - Providing user statistics within the app.
 
+## 💢Challenges
+Throughout our journey in the hackathon, our primary challenge was centered on our limited experience with app development. For most of our team, this marked our first foray into the intricacies of React and Expo, and the process of troubleshooting presented a considerable learning curve as we weren't proficient at interpreting the various error messages. Another significant obstacle was the transition from our Figma model screens to actual app development. We quickly discovered that it wasn't as straightforward as we initially thought. This process demanded a deep understanding of various complex functionalities, including creating a user-login screen connected to a database, implementing camera features, and crafting reusable components tailored to specific user needs, among other aspects.
 
 ## 🎨Ex: Drawing
 Here's our generated Video from running the MATLAB Code on the screenshots created with screenshots of [someone's](https://www.youtube.com/watch?v=mF81VV7FAmk) drawings over the years. You can distinctly see the progress being made. 
 
 [Video](https://drive.google.com/file/d/15N9eYZr5UbWsADjCJ5rBopxVTyhmvTEt/view?usp=sharing)
 
-## 💰Ex: Financial Goals
-
+## 💰Ex: Financial Goal
+In our forward-looking strategy, we are actively preparing to introduce a financial goal feature aimed at enhancing financial literacy. This initiative involves the development of a comprehensive goal designed to offer users valuable resources in the form of instructional videos and practical tips, fostering budgetary competence and financial acumen. Moreover, we are committed to monitoring and tracking users' progress in this financial goal, ensuring that they receive the necessary support and guidance throughout their financial literacy journey.
 
 ## 🚀Try it Out
 Here's a link to our prototype
