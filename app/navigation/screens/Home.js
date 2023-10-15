@@ -1,11 +1,12 @@
-import { View, Text, StatusBar, StyleSheet, Button, TextInput, TouchableOpacity, FlatList } from 'react-native';
 import React, { useState, useEffect } from 'react';
+import { View, Text, StyleSheet, Button, TextInput, TouchableOpacity, FlatList } from 'react-native';
 import { auth } from '../../firebase';
 
 const Home = ({ navigation }) => {
   const [message, setMessage] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const [friends, setFriends] = useState([]);
 
   useEffect(() => {
     fetch("https://milestone-api-b3wiqyztra-ue.a.run.app/message")
@@ -17,9 +18,6 @@ const Home = ({ navigation }) => {
   }, []);
 
   const handleSearch = async () => {
-    // Implement your search logic here
-    // You can use the 'searchQuery' state for the search term.
-    //console.log("Searching for:", searchQuery);
     try {
       const response = fetch('http://128.61.63.216:8080/api/search/' + searchQuery);
       const json = (await response).json().then((data) => {
@@ -31,18 +29,18 @@ const Home = ({ navigation }) => {
   };
 
   const addFriend = async (friend) => {
-    console.log("bononoon");
     try {
-        const response = await fetch('http://128.61.63.216:8080/api/users/friend', {
-            method: "POST",
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ uid: auth.currentUser.uid, friendId: friend.uid }),
-        });
+      const response = await fetch('http://128.61.63.216:8080/api/users/friend', {
+        method: "POST",
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ uid: auth.currentUser.uid, friendId: friend.uid }),
+      });
+      setFriends([...friends, friend]);
     } catch (error) {
-        console.error(error);
+      console.error(error);
     }
   }
 
@@ -81,13 +79,17 @@ const Home = ({ navigation }) => {
         keyExtractor={(item) => item.uid}
         renderItem={renderItem}
       />
-      <View style={styles.centerContent}>
-        <Text>Home</Text>
-        <Text>{message}</Text>
-        <Button
-          title="Go to Profile"
-          onPress={() => navigation.navigate('Profile')}
+      <Text>{message}</Text>
+      <View style={styles.friendsContainer}>
+        <Text style={styles.friendsTitle}>Friends:</Text>
+        <FlatList
+          data={friends}
+          keyExtractor={(item) => item.uid}
+          renderItem={renderItem}
         />
+      </View>
+      <View style={styles.feedContainer}>
+        <Text style={styles.feedTitle}>Feed:</Text>
       </View>
     </View>
   );
@@ -138,6 +140,28 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: 'gray',
     padding: 10,
+  },
+  friendsContainer: {
+    borderColor: 'gray',
+    borderWidth: 1,
+    padding: 10,
+    width: 300,
+    height: 200
+  },
+  friendsTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  feedContainer: {
+    borderColor: 'gray',
+    borderWidth: 1,
+    padding: 10,
+    width: 300,
+    height: 200
+  },
+  feedTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
   },
 });
 
