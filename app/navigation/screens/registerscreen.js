@@ -35,7 +35,7 @@ const RegisterScreen = ({ navigation }) => {
 
     const addUser = async (uid, username, name, email) => {
         try {
-            const response = await fetch('http://128.61.63.216:8080/api/users', {
+            const response = await fetch('https://milestone-401923.ue.r.appspot.com/api/users', {
                 method: "POST",
                 headers: {
                     Accept: 'application/json',

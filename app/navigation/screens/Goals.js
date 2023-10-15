@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import {
 	Keyboard,
 	KeyboardAvoidingView, Platform,
@@ -9,19 +9,17 @@ import {
 import Ionicons from "react-native-vector-icons/Ionicons";
 import Goal from '../../components/Goal';
 import GoalModal from '../../components/GoalModal';
+import { AuthContext } from '../../Providers/Auth';
 
-const GoalsScreen = ({navigation}) => {
-	const [title, setTitle] = useState('');
-	const [description, setDescription] = useState('');
-	const [category, setCategory] = useState('Personal');
-	const [startDate, setStartDate] = useState(new Date());
-	const [endDate, setEndDate] = useState(new Date());
+const GoalsScreen = ({ navigation }) => {
 	const [goals, setGoals] = useState([]);
 	const [modalVisible, setModalVisible] = useState(false);
+	const user = useContext(AuthContext);
 	const openCamera = (goalId) => {
-		navigation.navigate("Camera", {goalId});
+		navigation.navigate("Camera", { goalId });
 		incrementGoal(goalId);
 	}
+	const uid = user[0].uid
 
 	const incrementGoal = (goalId) => {
 		const nextGoals = goals.map((g) => {
@@ -32,10 +30,19 @@ const GoalsScreen = ({navigation}) => {
 			else {
 				return g;
 			}
-			
+
 		})
 		setGoals(nextGoals);
 	}
+
+	useEffect(() => {
+		fetch("https://milestone-401923.ue.r.appspot.com/api/users/" + uid)
+			.then(response => response.json())
+			.then(data => {
+				setGoals(data.goals)
+			})
+	}, [])
+
 
 	const addGoal = (id, titleText, description, min, max, value) => {
 		console.log("Trying to add goal")
@@ -58,28 +65,28 @@ const GoalsScreen = ({navigation}) => {
 			behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
 			style={styles.container}>
 			<TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-					<ScrollView style={{flex: 1}} contentContainerStyle={styles.center}>
-						<GoalModal visible={modalVisible} changeVisibility={setModalVisible} createGoal={addGoal}/>
-						<View style={styles.header}>
-							<View style={styles.headerRow}>
-								<Text style={styles.title}>Your Goals</Text>
-								<TouchableOpacity style={styles.headerButton} onPress={() => setModalVisible(true)}>
-									<Ionicons style={styles.headerButtonIcon} name="add-outline" />
-								</TouchableOpacity>
-							</View>
-							<View style={styles.buttonRow}>
-								<TouchableOpacity style={styles.rectangle4}>
-									<Text style={{}}>Conquering</Text>
-								</TouchableOpacity>
-								<TouchableOpacity style={styles.rectangle5}>
-									<Text style={{ color: "#FFF" }}>Finished</Text>
-								</TouchableOpacity>
-							</View>
+				<ScrollView style={{ flex: 1 }} contentContainerStyle={styles.center}>
+					<GoalModal visible={modalVisible} changeVisibility={setModalVisible} createGoal={addGoal} />
+					<View style={styles.header}>
+						<View style={styles.headerRow}>
+							<Text style={styles.title}>Your Goals</Text>
+							<TouchableOpacity style={styles.headerButton} onPress={() => setModalVisible(true)}>
+								<Ionicons style={styles.headerButtonIcon} name="add-outline" />
+							</TouchableOpacity>
 						</View>
-						{goals.map((g) => {
-							return <Goal key={g.id} title={g.title} description={g.description} min={g.min} max={g.max} value={g.value} onAddButtonPressed={() => {openCamera(g.id)}}/>
-						})}
-					</ScrollView>
+						<View style={styles.buttonRow}>
+							<TouchableOpacity style={styles.rectangle4}>
+								<Text style={{}}>Conquering</Text>
+							</TouchableOpacity>
+							<TouchableOpacity style={styles.rectangle5}>
+								<Text style={{ color: "#FFF" }}>Finished</Text>
+							</TouchableOpacity>
+						</View>
+					</View>
+					{goals.map((g) => {
+						return <Goal key={g.id} title={g.title} description={g.description} min={g.min} max={g.max} value={g.value} onAddButtonPressed={() => { openCamera(g.id) }} />
+					})}
+				</ScrollView>
 
 			</TouchableWithoutFeedback>
 		</KeyboardAvoidingView>

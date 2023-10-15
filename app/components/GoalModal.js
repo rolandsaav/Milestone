@@ -23,7 +23,7 @@ const GoalModal = ({ visible, changeVisibility, createGoal}) => {
         try {
             createGoal(id, title, description, 0, duration, 0);
             changeVisibility(false);
-            const response = await fetch('http://128.61.63.216:8080/api/users/goal', {
+            const response = await fetch('https://milestone-401923.ue.r.appspot.com/api/users/goal', {
                 method: "POST",
                 headers: {
                     Accept: 'application/json',

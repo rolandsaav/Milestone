@@ -2,12 +2,6 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getStorage } from "firebase/storage";
 
-import { decode } from 'base-64';
-
-if(typeof atob === 'undefined') {
-  global.atob = decode;
-}
-
 
 const firebaseConfig = {
 
