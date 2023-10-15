@@ -170,7 +170,13 @@ Additionally, we intended to utilize MATLAB for:
 - Providing user statistics within the app.
 
 ## 💢Challenges
-Throughout our journey in the hackathon, our primary challenge was centered on our limited experience with app development. For most of our team, this marked our first foray into the intricacies of React and Expo, and the process of troubleshooting presented a considerable learning curve as we weren't proficient at interpreting the various error messages. Another significant obstacle was the transition from our Figma model screens to actual app development. We quickly discovered that it wasn't as straightforward as we initially thought. This process demanded a deep understanding of various complex functionalities, including creating a user-login screen connected to a database, implementing camera features, and crafting reusable components tailored to specific user needs, among other aspects.
+Throughout our journey in the hackathon, our primary challenge was centered on our limited experience with app development. For most of our team, this marked our first foray into the intricacies of React and Expo, and the process of troubleshooting presented a considerable learning curve as we weren't proficient at interpreting the various error messages. 
+
+Another significant obstacle was the transition from our Figma model screens to actual app development. We quickly discovered that it wasn't as straightforward as we initially thought. This process demanded a deep understanding of various complex functionalities, including creating a user-login screen connected to a database, implementing camera features, and crafting reusable components tailored to specific user needs, among other aspects.
+
+Trying to find a way to convert the images into a video was another challenge. It wasn't as easy as it seemed. Integrating MATLAB and the Backend seemed to be a huge challenge as we needed a new API. 
+
+The time crunch and the lack of sleep really did get to us towards the end but we were able to come through and deliver.
 
 ## 🎨Ex: Drawing
 Here's our generated Video from running the MATLAB Code on the screenshots created with screenshots of [someone's](https://www.youtube.com/watch?v=mF81VV7FAmk) drawings over the years. You can distinctly see the progress being made. 
@@ -178,7 +184,15 @@ Here's our generated Video from running the MATLAB Code on the screenshots creat
 [Video](https://drive.google.com/file/d/15N9eYZr5UbWsADjCJ5rBopxVTyhmvTEt/view?usp=sharing)
 
 ## 💰Ex: Financial Goal
-In our forward-looking strategy, we are actively preparing to introduce a financial goal feature aimed at enhancing financial literacy. This initiative involves the development of a comprehensive goal designed to offer users valuable resources in the form of instructional videos and practical tips, fostering budgetary competence and financial acumen. Moreover, we are committed to monitoring and tracking users' progress in this financial goal, ensuring that they receive the necessary support and guidance throughout their financial literacy journey.
+In our forward-thinking strategy, we are actively preparing to introduce a financial goal feature that aims to enhance financial literacy. This initiative involves creating a comprehensive goal that will provide users with valuable resources, such as instructional videos and practical tips, to foster budgeting skills and financial knowledge. Additionally, we are dedicated to closely monitoring and tracking users' progress in this financial goal, ensuring they receive the necessary support and guidance throughout their journey to financial literacy.
+
+Users will have the ability to track their individual goals, like saving up to reach a specific amount in their bank account. This feature encourages the habit of saving, especially now that it offers a clear pathway and motivation. Saving a 5$ a day doesn't seem like much. But when you see your results over a month can show you that you saved 150$ Now that's quite the sum and sure enough $5 a day doesn't sound as  motivating as 150$ a month which can become 1800$ a year!
+
+Furthermore, users can also collaborate with friends to create group goals, such as saving up for a new couch. They can split the target amount as they see fit and then upload it to our platform. By doing this, a commitment is made, and all parties involved are accountable for meeting the goal. The transparency provided by our app for group goals is innovative and addresses a common challenge faced by friend groups when they want to invest in something together.
+
+In addition to goal-setting, our app allows users to keep track of their personal budgets and weekly expenditures. For instance, if someone aims to spend less than $200 per week, they can easily upload their daily expenses. The statistics and analysis provided by the app can offer valuable insights into where and how to make better financial decisions.
+
+
 
 ## 🚀Try it Out
 Here's a link to our prototype
