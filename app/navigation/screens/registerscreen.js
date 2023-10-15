@@ -5,7 +5,7 @@ import SocialButton from '../../components/SocialButton';
 import { auth } from '../../firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { useContext, useState } from 'react';
-import { AuthContext } from '../../App';
+import { AuthContext } from '../../Providers/Auth';
 const facebookImg = require("../../assets/Facebook.png")
 const googleImg = require("../../assets/Google.png")
 

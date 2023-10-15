@@ -18,7 +18,7 @@ const GoalModal = ({ visible, changeVisibility, createGoal}) => {
         addGoal(title, 0, category)
     }
     const addGoal = async (title, streak, category) => {
-        const duration = parseInt((end.getTime() - start.getTime()) / (1000 * 3600 * 64))
+        const duration = parseInt((end.getTime() - start.getTime()) / (1000 * 3600 * 24))
         const id = uuidv4()
         try {
             createGoal(id, title, description, 0, duration, 0);

@@ -39,7 +39,9 @@ router.post("/goal", (req, res) => {
         uid: req.body.uid,
         title: req.body.title,
         streak: 0,
-        category: req.body.category
+        category: req.body.category,
+        duration: req.body.duration,
+        description: req.body.description,
     };
 
     db.collection('users').doc(String(req.body.userId)).update({

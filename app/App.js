@@ -1,10 +1,8 @@
 import { NavigationContainer } from '@react-navigation/native';
-import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView, Touchable } from 'react-native';
 import MainContainer from './navigation/MainContainer';
 import AuthContainer from './navigation/AuthContainer';
 import React, { useState } from 'react';
-
-const AuthContext = React.createContext({});
+import { AuthContext } from './Providers/Auth';
 
 export default function App() {
   const [user, setUser] = useState(null);
@@ -16,4 +14,3 @@ export default function App() {
     </AuthContext.Provider>
   );
 };
-export {AuthContext}

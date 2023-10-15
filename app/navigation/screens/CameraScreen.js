@@ -5,14 +5,14 @@ import { Camera } from 'expo-camera';
 import { shareAsync } from 'expo-sharing';
 import * as MediaLibrary from 'expo-media-library';
 import { bucket } from '../../firebase';
-import { getStorage, ref, uploadString, uploadBytes } from "firebase/storage";
-import { AuthContext } from "../../App"
+import { ref, uploadBytes } from "firebase/storage";
 import uuid from 'react-native-uuid';
-import { decode } from 'base-64';
+// import { decode } from 'base-64';
+import { AuthContext } from '../../Providers/Auth';
 
-if (typeof atob === 'undefined') {
-  global.atob = decode;
-}
+// if (typeof atob === 'undefined') {
+//   global.atob = decode;
+// }
 
 export default function CameraScreen({navigation, route}) {
   let cameraRef = useRef();
