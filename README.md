@@ -170,7 +170,7 @@ Additionally, we intended to utilize MATLAB for:
 
 
 ## 🎨Ex: Drawing
-Here's an example video created with pictures of [someone's](https://www.youtube.com/watch?v=mF81VV7FAmk) drawings over the years. You can distinctly see the progress being made. 
+Here's our generated Video from running the MATLAB Code on the screenshots created with screenshots of [someone's](https://www.youtube.com/watch?v=mF81VV7FAmk) drawings over the years. You can distinctly see the progress being made. 
 
 [Video](https://drive.google.com/file/d/15N9eYZr5UbWsADjCJ5rBopxVTyhmvTEt/view?usp=sharing)
 
@@ -184,7 +184,7 @@ Here's a link to our prototype
 Our app is meant for anyone and everyone who wants to set goals for themselves. The user interface is easy to interact with and we are looking at adding accessibility components.
 
 ## 🚀Future Prospects
-**Accessibility:** We want to make our app accessible to people hard of hearing and sight. Since we aim to include anyone and everyone in our target audience.
-**Have better algorithms to calculate goal completion:** We were looking at using AI Models for pattern analysis and training them with data sets to calculate goal completion.
-**Leaderboard:** Each task gets you points and you get on a leaderboard with your friends. The competitiveness combined with the commitment that you have made creates the perfect accountability partner for your goals.
+- **Accessibility:** We want to make our app accessible to people hard of hearing and sight. Since we aim to include anyone and everyone in our target audience.
+- **Have better algorithms to calculate goal completion:** We were looking at using AI Models for pattern analysis and training them with data sets to calculate goal completion.
+- **Leaderboard:** Each task gets you points and you get on a leaderboard with your friends. The competitiveness combined with the commitment that you have made creates the perfect accountability partner for your goals.
 
