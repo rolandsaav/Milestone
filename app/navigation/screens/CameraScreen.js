@@ -14,7 +14,7 @@ import { AuthContext } from '../../Providers/Auth';
 //   global.atob = decode;
 // }
 
-export default function CameraScreen({navigation, route}) {
+export default function CameraScreen({ navigation, route }) {
   let cameraRef = useRef();
   const [hasCameraPermission, setHasCameraPermission] = useState();
   const [hasMediaLibraryPermission, setHasMediaLibraryPermission] = useState();
@@ -24,6 +24,8 @@ export default function CameraScreen({navigation, route}) {
   const uid = user[0].uid
   const imageId = uuid.v4();
   const imageRef = ref(bucket, `images/${uid}/${imageId}`)
+  console.log(route.params.goalId)
+  console.log(user)
 
   const getBlobFroUri = async (uri) => {
     const blob = await new Promise((resolve, reject) => {
@@ -38,7 +40,7 @@ export default function CameraScreen({navigation, route}) {
       xhr.open("GET", uri, true);
       xhr.send(null);
     });
-  
+
     return blob;
   };
 
@@ -67,7 +69,7 @@ export default function CameraScreen({navigation, route}) {
 
     let newPhoto = await cameraRef.current.takePictureAsync(options);
     setPhoto(newPhoto);
-    
+
   };
 
   if (photo) {
@@ -80,12 +82,23 @@ export default function CameraScreen({navigation, route}) {
     let savePhoto = async () => {
       console.log(photo.uri)
       const imageBlob = await getBlobFroUri(photo.uri)
+      console.log("made image blob")
 
-      uploadBytes(imageRef, imageBlob).then((snapshot) => {
-        console.log('Uploaded a blob or file!');
-      }).finally(() => {
-        navigation.navigate("Goals");
-      })
+      const uploadResult = await uploadBytes(imageRef, imageBlob)
+      console.log("Upload complete")
+
+      const postData = {
+        imageId: imageId
+      }
+
+      fetch(`https://milestone-401923.ue.r.appspot.com/api/goals/${user.uid}`, {
+        method: "POST",
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: postData,
+      });
 
     };
 
@@ -104,7 +117,7 @@ export default function CameraScreen({navigation, route}) {
       <View style={styles.buttonContainer}>
         <Button title="Take Pic" onPress={takePic} />
       </View>
-      <StatusBar style="auto"/>
+      <StatusBar style="auto" />
     </Camera>
   );
 }

@@ -45,6 +45,7 @@ router.post("/goal", (req, res) => {
         goals: FieldValue.arrayUnion(newGoal)
     });
     db.collection('goals').doc(String(newGoal.uid)).set(newGoal);
+    res.send("Success")
 });
 
 router.post("/friend", (req, res) => {
