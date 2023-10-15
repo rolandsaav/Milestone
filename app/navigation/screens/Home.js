@@ -1,5 +1,6 @@
 import { View, Text, StatusBar, StyleSheet, Button, TextInput, TouchableOpacity, FlatList } from 'react-native';
 import React, { useState, useEffect } from 'react';
+import { auth } from '../../firebase';
 
 const Home = ({ navigation }) => {
   const [message, setMessage] = useState("");
@@ -29,13 +30,29 @@ const Home = ({ navigation }) => {
     }
   };
 
+  const addFriend = async (friend) => {
+    console.log("bononoon");
+    try {
+        const response = await fetch('http://128.61.63.216:8080/api/users/friend', {
+            method: "POST",
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ uid: auth.currentUser.uid, friendId: friend.uid }),
+        });
+    } catch (error) {
+        console.error(error);
+    }
+  }
+
   const renderItem = ({ item }) => (
     <View style={styles.resultItem}>
       <Text>{item.username}</Text>
       <Button
         title="+"
         onPress={() => {
-          // Add your action for each item here
+          addFriend(item);
         }}
       />
     </View>
