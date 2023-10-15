@@ -7,6 +7,7 @@ import Ionicons from "react-native-vector-icons/Ionicons"
 import Home from "./screens/Home";
 import Goals from "./screens/Goals";
 import Profile from "./screens/Profile";
+import { SafeAreaView } from "react-native";
 
 //Screen Names
 const homeName = "Home";
@@ -17,6 +18,7 @@ const Tab = createBottomTabNavigator();
 
 export default function MainContainer(){
     return(
+        <SafeAreaView style={{flex: 1}}>
             <Tab.Navigator
                 initialRouteName={homeName}
                 screenOptions={({route}) => ({
@@ -33,7 +35,8 @@ export default function MainContainer(){
                         }
 
                         return <Ionicons name={iconName} size={size} colors={color}/>
-                    }
+                    },
+                    headerShown: false 
                 })}>
 
                 <Tab.Screen name={homeName} component={Home}/>
@@ -41,5 +44,6 @@ export default function MainContainer(){
                 <Tab.Screen name={profileName} component={Profile}/>
 
             </Tab.Navigator>
+        </SafeAreaView>
     )
 }
